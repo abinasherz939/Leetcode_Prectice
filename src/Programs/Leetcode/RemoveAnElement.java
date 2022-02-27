@@ -1,5 +1,9 @@
 package Programs.Leetcode;
 
+import java.util.Arrays;
+
+
+
 public class RemoveAnElement {
 //    public int removeElement(int[] nums, int val) {
 //        int noOfTimesItsDone =0;
@@ -32,4 +36,23 @@ public class RemoveAnElement {
         }
         return m;
     }
+
+    public int minimumSum(int num) {
+
+        int[] array = new int[4];
+        for (int i = 3; i >=0; i--) {
+            array[i] = num%10;
+            num/= 10;
+        }
+        Arrays.sort(array);
+        return ((array[0]*10) + array[2]) + ((array[1]*10)+ array[3]);
+    }
+
+
+    public static void main(String[] args) {
+        for (int i = 1000; i < 9999; i++) {
+            System.out.println(i);
+        }
+    }
+
 }
