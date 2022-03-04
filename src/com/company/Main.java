@@ -158,22 +158,23 @@ public class Main {
 //        System.out.println(e);
 //
 //
-        LinkedList<Integer> list = new LinkedList<Integer>();
+//        LinkedList<Integer> list = new LinkedList<Integer>();
+//
+//        list.add(3);
+//        list.add(3);
+//        list.add(3);
+//        list.add(3);list.add(3);
+//
+//        for (Integer i :
+//                list) {
+//            System.out.println(i);
+//        }
+//        System.out.println();
+//        Iterator<Integer> itr = list.iterator();
+//        while (itr.hasNext()){
+//            System.out.println(itr.next());
+//        }
 
-        list.add(3);
-        list.add(3);
-        list.add(3);
-        list.add(3);list.add(3);
-
-        for (Integer i :
-                list) {
-            System.out.println(i);
-        }
-        System.out.println();
-        Iterator<Integer> itr = list.iterator();
-        while (itr.hasNext()){
-            System.out.println(itr.next());
-        }
 
 
 
