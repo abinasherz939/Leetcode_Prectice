@@ -176,7 +176,7 @@ public class Main {
 //        }
 
 
-
+//        System.out.println(Math.abs(3-7) - Math.abs(7-10));
 
     }
 
