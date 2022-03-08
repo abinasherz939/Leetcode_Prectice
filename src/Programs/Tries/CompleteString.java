@@ -1,6 +1,5 @@
 package Programs.Tries;
 
-public class CompleteString {
 
     class Node2 {
         Node links[] = new Node[26];
@@ -27,10 +26,61 @@ public class CompleteString {
         }
     };
 
+    class Trie5 {
+
+        private static Node root;
+        Trie5() {//Initialize your data structure here
+            root = new Node();
+        }
+
+
+        public static void insert(String word) {
+            Node node  = root;
+            for (int index = 0; index < word.length(); index++) {
+                if (!node.containsKey(word.charAt(index))){
+                    node.put(word.charAt(index), new Node());
+                }
+//            node = node.links[word.charAt(index)];
+                node = node.get(word.charAt(index));
+            }
+//        node.setEnd();// flag true kar rhe yha
+        }
+
+
+        //Returns if the word is in the trie
+
+        public static boolean search(String word) {
+            Node node = root;
+            for (int index = 0; index < word.length(); index++) {
+                if (!node.containsKey(word.charAt(index)))return false;
+                node =  node.get(word.charAt(index));
+            }
+            return node.isEnd();
+//        return true;
+        }
+
+
+        //Returns if there is any word in the trie that starts with the given prefix
+
+        public static boolean startsWith(String prefix) {
+            Node node = root;
+            for (int index = 0; index < prefix.length(); index++) {
+                if (!node.containsKey(prefix.charAt(index))) return false;
+                node = node.get(prefix.charAt(index));
+            }
+            return true;
+        }
+    }
+
+public class CompleteString {
     public static String completeString(int n, String[] a) {
 
+        Trie5 obj = new Trie5();
+        for (int index = 0; index < a.length; index++) {
+        }
 
-
-
+        return
     }
 }
+
+

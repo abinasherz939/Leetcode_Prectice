@@ -27,10 +27,10 @@ class Node1 {
 
 
 
-public class Trie1 {
+class Trie4 {
 
     private static Node root;
-    Trie1() {//Initialize your data structure here
+    Trie4() {//Initialize your data structure here
         root = new Node();
     }
 
@@ -56,8 +56,8 @@ public class Trie1 {
             if (!node.containsKey(word.charAt(index)))return false;
             node =  node.get(word.charAt(index));
         }
-//        return node.isEnd();
-        return true;
+        return node.isEnd();
+//        return true;
     }
 
 
