@@ -50,6 +50,8 @@ public class NextGreaterElement {
         }
         return nextGreaterElements;
     }
+
+
 //    public int[] nextGreaterElements(int[] nums) {
 //        int n = nums.length;
 //        int nge[] = new int[n];
@@ -75,11 +77,25 @@ public class NextGreaterElement {
         int arraySize = temperatures.length;
         int[] ans = new int[arraySize];
         Stack<Integer> stack = new Stack<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int index = arraySize-1; index >=0; index--) {
-            while (!stack.isEmpty() && stack.peek() > temperatures[index])
-        }
+            while (!stack.isEmpty()&& stack.peek() <temperatures[index]) stack.pop();
 
-        return ans;
+            if (!stack.isEmpty() && stack.peek() > temperatures[index]) ans[index] = stack.peek();
+            else ans[index] = -1;
+            stack.push(temperatures[index]);
+        }
+        for (int i = 0; i < temperatures.length; i++) map.put(temperatures[i],i);
+
+        int [] result =  new int[temperatures.length];
+        for (int i = 0; i < ans.length; i++) {
+
+            if (ans[i] != -1)
+            result[i] = map.get(ans[i]) - i ;
+            else ans[i] = 0;
+        }
+        return result;
     }
+
 }
