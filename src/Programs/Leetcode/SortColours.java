@@ -1,6 +1,6 @@
 package Programs.Leetcode;
 
-import org.w3c.dom.ls.LSInput;
+
 
 import javax.swing.event.ListDataEvent;
 import java.util.*;
@@ -1073,6 +1073,38 @@ class RandomListNode{
         else currentNode.next = list1;
         return dummyNode.next;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

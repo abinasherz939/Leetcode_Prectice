@@ -43,6 +43,7 @@ import java.util.Stack;
 //
 //        stack.push(new Pair(root, 1));
 //
+// we will have to add the node in stack and use if now it is not ok.
 //        while (!stack.isEmpty()){
 //            Pair currentPair = stack.pop();
 //            if (currentPair.noOfTimesVisited == 1){

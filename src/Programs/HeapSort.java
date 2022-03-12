@@ -16,10 +16,7 @@ public class HeapSort {
     public int[] heapSort(int @NotNull [] array){
         int[] resultArray = new int[array.length];
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-        for (int i :
-                array) {
-            minHeap.offer(i);
-        }
+        for (int i : array) minHeap.offer(i);
         for (int i = 0; i < array.length; i++) {
             resultArray[i] = minHeap.poll();
         }
