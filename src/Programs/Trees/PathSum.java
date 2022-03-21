@@ -1,8 +1,6 @@
 //package Programs.Trees;
 //
-//import java.util.ArrayList;
-//import java.util.List;
-//import java.util.Stack;
+//import java.util.*;
 //
 //public class PathSum {
 //    public boolean hasPathSumRecursive(TreeNode root, int sum) {
@@ -65,22 +63,18 @@
 //        List<List<Integer>> list = new ArrayList<>();
 //        Stack<TreeNode> mainStack = new Stack<>();
 //        Stack<Integer> sumStack = new Stack<>();
-//        List<Integer> list1 = new Stack<>();
-//        list1.add(root.val);
+//        Deque<Integer> list2 = new ArrayDeque<>();
+//        list2.addLast(root.val);
 //        mainStack.push(root);
 //        sumStack.push(root.val);
 //        while (!mainStack.isEmpty()){
 //            TreeNode tempNode = mainStack.pop();
 //            Integer valHere = sumStack.pop();
-//            Integer element = elementStack.pop();
+//            Integer element = list2.peekFirst();
 //            if (tempNode.left ==null &&  tempNode.right == null)
 //            {
 //                if (targetSum == sumStack.peek()){
-//                    List<Integer> list1 = new ArrayList<>();
-//                    for (int i :
-//                            elementStack) {
-//                     list1.add(i);
-//                    }
+//                    List<Integer> list1 = new ArrayList<>(list2);
 //                    list.add(list1);
 //                }
 //            }

@@ -56,8 +56,8 @@ class Trie4 {
             if (!node.containsKey(word.charAt(index)))return false;
             node =  node.get(word.charAt(index));
         }
-        return node.isEnd();
-//        return true;
+//        return node.isEnd();
+        return true;
     }
 
 

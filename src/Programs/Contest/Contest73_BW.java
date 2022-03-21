@@ -1,8 +1,6 @@
 package Programs.Contest;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Contest73_BW {
 
@@ -222,4 +220,283 @@ public class Contest73_BW {
 
         return resultMatrix;
     }
+}
+
+//class Solution {
+//
+//    public static void main(String[] args) {
+//
+//        Scanner sc = new Scanner(System.in);
+//        int n = sc.nextInt();
+//        int m = sc.nextInt();
+//
+//        int [] arr = new int[m];
+//        for (int i = 0; i < n; i++) {
+//            arr[i] = sc.nextInt();
+//        }
+//        Arrays.sort(arr);
+//        rvereseArray(arr, 0, arr.length-1);
+////
+//        int sum = 0;
+////        int min = Integer.MAX_VALUE;
+//        int index = 0;
+////        for (; index <= m-1; index++) {
+////            min = Math.min(min, arr[index]);
+////            sum+=arr[index];
+////        }
+////
+////        sum -= min;
+////
+////
+////        for (; index < arr.length; index++) {
+////            sum+=arr[index];
+////        }
+//        while (index < arr.length){
+//            if (index == m-1){
+//                index++
+//                continue;
+//            }
+//            sum += arr[index++];
+//        }
+//        System.out.println(sum);
+//
+//    }
+//    static void rvereseArray(int[] arr, int start, int end)
+//    {
+//        int temp;
+//
+//        while (start < end)
+//        {
+//            temp = arr[start];
+//            arr[start] = arr[end];
+//            arr[end] = temp;
+//            start++;
+//            end--;
+//        }
+//    }
+//}
+//
+//
+
+
+
+//
+//
+//
+//public class Solution {
+//
+//    public static void main(String[] args) {
+//
+//
+//
+//        String str = new Scanner(System.in).nextLine();
+//        Solution obj = new Solution();
+//        String out = obj.decodeString(str);
+//        System.out.println(out);
+//    }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//    private int pos = 0;
+//    public String decodeString(String s) {
+//        int n = s.length(), repeat = 0;
+//        StringBuilder buf = new StringBuilder();
+//        while (pos < n) {
+//            char c = s.charAt(pos);
+//            if (c >= 'a' && c <= 'z') {
+//                buf.append(c);
+//            } else if (c >= '0' && c <= '9') {
+//                repeat = repeat * 10 + (c - '0');
+//            } else if (c == '[') {
+//                pos++;  // skip the char '['
+//                String str = decodeString(s);  // pos is diff for each call
+//                for (int i = 0; i < repeat; i++)
+//                    buf.append(str);
+//                repeat = 0;  // reset the value for the next input
+//            } else if (c == ']')
+//                break;
+//            pos++;
+//        }
+//        return buf.toString();
+//    }
+//
+//
+//}
+//
+
+
+class Solution {
+
+//    public static int minLCM(int L, int R) {
+//
+//        // If 2*L is within the the range
+//        // then minimum LCM would be 2*L
+//        if (2 * L <= R)
+//            return 2 * L;
+//
+//            // Otherwise L * (L+1) would give
+//            // the minimum LCM
+//        else
+//            return L * (L + 1);
+//    }
+//
+//    // Function to find maximum LCM in range [L, R]
+//    public static int maxLCM(int L, int R) {
+//
+//        // The only possible equation that will give
+//        // the maximum LCM is R * (R-1)
+//        return R * (R - 1);
+//    }
+//
+//    public static void main(String[] args) {
+//        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+//        Scanner sc  = new Scanner(System.in);
+//        int L = sc.nextInt();
+//        int R = sc.nextInt();
+//
+//        System.out.print(minLCM(L, R) + " ");
+//        System.out.print(maxLCM(L, R));
+//    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int [] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        Arrays.sort(arr);
+        rvereseArray(arr, 0, arr.length-1);
+        int sum = 0;
+
+        int index = 0;
+        while (index < arr.length){
+            if (index == m-1){
+                index++;
+                continue;
+            }
+            sum += arr[index];
+            index++;
+        }
+        System.out.println(sum);
+
+    }
+    static void rvereseArray(int[] arr, int start, int end)
+    {
+        int temp;
+
+        while (start < end)
+        {
+            temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+//
+///* A Java program to evaluate a
+//given expression where tokens
+//are separated by space.
+//*/
+//import java.util.Stack;
+
+    public static class EvaluateString
+    {
+        public static int evaluate(String expression)
+        {
+            char[] tokens = expression.toCharArray();
+            Stack<Integer> values = new Stack<>();
+            Stack<Character> ops = new Stack<>();
+
+            for (int i = 0; i < tokens.length; i++)
+            {
+                if (tokens[i] >= '0' && tokens[i] <= '9')
+                {
+                    StringBuffer sbuf = new StringBuffer();
+                    while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
+                        sbuf.append(tokens[i++]);
+                    values.push(Integer.parseInt(sbuf.
+                            toString()));
+                    i--;
+                }
+                else if (tokens[i] == '(') ops.push(tokens[i]);
+                else if (tokens[i] == ')')
+                {
+                    while (ops.peek() != '(')
+                        values.push(applyOp(ops.pop(), values.pop(), values.pop()));
+                    ops.pop();
+                }
+                else if (tokens[i] == '+' || tokens[i] == '-' || tokens[i] == '*' || tokens[i] == '/')
+                {
+                    while (!ops.empty() && hasPrecedence(tokens[i], ops.peek()))
+                        values.push(applyOp(ops.pop(), values.pop(), values.pop()));
+                    ops.push(tokens[i]);
+                }
+            }
+            while (!ops.empty())
+                values.push(applyOp(ops.pop(), values.pop(), values.pop()));
+            return values.pop();
+        }
+
+
+        public static boolean hasPrecedence(
+                char op1, char op2)
+        {
+            if (op2 == '(' || op2 == ')') return false;
+            if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) return false;
+            else return true;
+        }
+
+
+        public static int applyOp(char op, int b, int a)
+        {
+            switch (op)
+            {
+                case '+': return a + b;
+                case '-': return a - b;
+                case '*': return a * b;
+                case '/':
+                    if (b == 0) throw new UnsupportedOperationException("Cannot divide by zero");
+                    return a / b;
+            }
+            return 0;
+        }
+        public static void main(String[] args)
+        {
+            System.out.println(EvaluateString.
+                    evaluate("10+2*6"));
+            System.out.println(EvaluateString.
+                    evaluate("100*2+12"));
+            System.out.println(EvaluateString.
+                    evaluate("100*(2+12)"));
+            System.out.println(EvaluateString.
+                    evaluate("100*(2+12)/14"));
+        }
+    }
+
+
+
+
 }

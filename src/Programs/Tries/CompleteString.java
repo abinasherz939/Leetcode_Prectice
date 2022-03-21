@@ -55,8 +55,8 @@ package Programs.Tries;
                 if (!node.containsKey(word.charAt(index)))return false;
                 node =  node.get(word.charAt(index));
             }
-            return node.isEnd();
-//        return true;
+//            return node.isEnd();
+        return true;
         }
 
 
@@ -73,14 +73,14 @@ package Programs.Tries;
     }
 
 public class CompleteString {
-    public static String completeString(int n, String[] a) {
-
-        Trie5 obj = new Trie5();
-        for (int index = 0; index < a.length; index++) {
-        }
-
-        return
-    }
+//    public static String completeString(int n, String[] a) {
+//
+//        Trie5 obj = new Trie5();
+//        for (int index = 0; index < a.length; index++) {
+//        }
+//
+//        return
+//    }
 }
 
 

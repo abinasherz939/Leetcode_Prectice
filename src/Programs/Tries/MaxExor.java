@@ -18,6 +18,10 @@ class Node {
     void put(int ind, Node node) {
         links[ind] = node;
     }
+
+//    public boolean isEnd() {
+//        return false;
+//    }
 };
 class Trie {
     private static Node root;
